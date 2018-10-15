@@ -44,7 +44,14 @@ public class RegistraionTest {
       Student student = new Student();
         student.setName("John Smith");
         student.setAge(21);
+        student.setDOB("01/01/2000");
+        student.setCourses("BCT");
+        student.setID("123456");
+        
+        assertEquals(student.getDOB(), "01/01/2000");
         assertEquals(student.getUsername(), "John Smith21");
+        assertEquals(student.getCourses().toString(), "[BCT]");
+        assertEquals(student.getID(), "123456");
         
      }
      

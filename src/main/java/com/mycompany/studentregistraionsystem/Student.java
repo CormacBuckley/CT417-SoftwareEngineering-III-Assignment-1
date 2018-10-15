@@ -5,6 +5,8 @@
  */
 package com.mycompany.studentregistraionsystem;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author I342042
@@ -15,7 +17,7 @@ public class Student {
     private String DOB;
     private String ID;
     private String Username;
-    private String Courses[];
+    private ArrayList Courses = new ArrayList();
 
     public String getName() {
         return Name;
@@ -54,12 +56,12 @@ public class Student {
         return Username;
     }
 
-    public String[] getCourses() {
+    public ArrayList getCourses() {
         return Courses;
     }
 
-    public void setCourses(String Courses[]) {
-        this.Courses = Courses;
+    public void setCourses(String Courses) {
+        this.Courses.add(Courses);
     }
     
     
