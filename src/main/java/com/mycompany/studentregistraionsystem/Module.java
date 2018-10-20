@@ -14,12 +14,12 @@ import java.util.ArrayList;
 public class Module {
     private String Name;
     private ArrayList<Student> Students = new ArrayList<Student>();
-    private ArrayList Courses = new ArrayList();
+    private ArrayList<CourseProgramme> Courses = new ArrayList<CourseProgramme>();
 
-    public Module(String Name,ArrayList<Student> Students,ArrayList Courses ) {
+    public Module(String Name,Student Students,CourseProgramme Courses ) {
         this.Name = Name;
-        this.Students = Students;
-        this.Courses = Courses;
+        this.Students.add(Students);
+        this.Courses.add(Courses);
     }
 
     
@@ -33,20 +33,32 @@ public class Module {
         this.Name = Name;
     }
 
-    public ArrayList getStudents() {
-        return Students;
+    public Student[] getStudents() {
+        Student[] res = new Student[Students.size()];
+        for(int i = 0; i < Students.size(); i++){
+            res[i] = Students.get(i);
+        }
+        return res;
     }
 
-    public void setStudents(Student name) {
-        Students.add(name);
+    public void setStudents(Student[] stud) {
+        for(int i = 0; i < stud.length; i++){
+        this.Students.add(stud[i]);
+                }
     }
 
-    public ArrayList getCourses() {
-        return Courses;
+    public CourseProgramme[] getCourses() {
+         CourseProgramme[] res = new CourseProgramme[Courses.size()];
+        for(int i = 0; i < Courses.size(); i++){
+            res[i] = Courses.get(i);
+        }
+        return res;
     }
 
-    public void setCourses(String Courses) {
-        this.Courses.add(Courses);
+    public void setCourses(CourseProgramme[] cp) {
+         for(int i = 0; i < cp.length; i++){
+        this.Courses.add(cp[i]);
+                }
     }
     
 }

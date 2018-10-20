@@ -18,15 +18,14 @@ public class Student {
     private String DOB;
     private String ID;
     private String Username;
-    private ArrayList<CourseProgramme> Courses;
+    private ArrayList<CourseProgramme> Courses = new ArrayList<CourseProgramme>();
 
-    public Student(String Name, int Age, String DOB, String ID, ArrayList<CourseProgramme> Course) {
+    public Student(String Name, int Age, String DOB, String ID, CourseProgramme Course) {
         this.Name = Name;
         this.Age = Age;
         this.DOB = DOB;
         this.ID = ID;
-        this.Username = Username;
-        this.Courses = Course;
+        this.Courses.add(Course);
     }
     
     public String getName() {
@@ -66,17 +65,19 @@ public class Student {
         return Username;
     }
 
-    public String[] getCourses() {
-        String[] output = new String[Courses.size()];
+   public CourseProgramme[] getCourses() {
+         CourseProgramme[] res = new CourseProgramme[Courses.size()];
         for(int i = 0; i < Courses.size(); i++){
-            output[i] = Courses.get(i).toString();
+            res[i] = Courses.get(i);
         }
-       return output; 
+        return res;
     }
 
-    public void setCourses(CourseProgramme Courses) {
-        this.Courses.add(Courses);
+   
+    public void setCourses(CourseProgramme[] cp) {
+         for(int i = 0; i < cp.length; i++){
+        this.Courses.add(cp[i]);
+                }
     }
-    
     
 }
