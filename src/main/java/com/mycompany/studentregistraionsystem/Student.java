@@ -12,13 +12,23 @@ import java.util.ArrayList;
  * @author I342042
  */
 public class Student {
+    
     private String Name;
     private int Age;
     private String DOB;
     private String ID;
     private String Username;
-    private ArrayList Courses = new ArrayList();
+    private ArrayList<CourseProgramme> Courses;
 
+    public Student(String Name, int Age, String DOB, String ID, ArrayList<CourseProgramme> Course) {
+        this.Name = Name;
+        this.Age = Age;
+        this.DOB = DOB;
+        this.ID = ID;
+        this.Username = Username;
+        this.Courses = Course;
+    }
+    
     public String getName() {
         return Name;
     }
@@ -56,11 +66,15 @@ public class Student {
         return Username;
     }
 
-    public ArrayList getCourses() {
-        return Courses;
+    public String[] getCourses() {
+        String[] output = new String[Courses.size()];
+        for(int i = 0; i < Courses.size(); i++){
+            output[i] = Courses.get(i).toString();
+        }
+       return output; 
     }
 
-    public void setCourses(String Courses) {
+    public void setCourses(CourseProgramme Courses) {
         this.Courses.add(Courses);
     }
     

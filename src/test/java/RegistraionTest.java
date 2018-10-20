@@ -7,6 +7,9 @@
 import com.mycompany.studentregistraionsystem.CourseProgramme;
 import com.mycompany.studentregistraionsystem.Module;
 import com.mycompany.studentregistraionsystem.Student;
+import java.util.ArrayList;
+import java.util.logging.Logger;
+import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
@@ -20,6 +23,13 @@ import org.junit.Test;
  */
 public class RegistraionTest {
     
+    private Student student;
+    private Module module;
+    private CourseProgramme cp;
+    ArrayList<CourseProgramme> Courses = new ArrayList<CourseProgramme>();
+    ArrayList<Student> Students = new ArrayList<Student>();
+    ArrayList<Module> Modules = new ArrayList<Module>();
+    
     public RegistraionTest() {
     }
     
@@ -31,43 +41,52 @@ public class RegistraionTest {
 //    public static void tearDownClass() {
 //    }
 //    
-//    @Before
-//    public void setUp() {
-//    }
+    @Before
+    public void setUp() {
+         
+        student = new Student("John Smith", 35, "01/01/2000", "1234", Courses);
+        module = new Module("CT414", Students, Courses);
+        cp = new CourseProgramme("BCT", module, new DateTime("2012-08-16"),new DateTime("2013-08-16") );
+       
+    }
 //    
 //    @After
 //    public void tearDown() {
 //    }
 
-    @Test
-     public void Student_Tests() {
-      Student student = new Student();
-        student.setName("John Smith");
-        student.setAge(21);
-        student.setDOB("01/01/2000");
-        student.setCourses("BCT");
-        student.setID("123456");
-        
-        assertEquals(student.getDOB(), "01/01/2000");
-        assertEquals(student.getUsername(), "John Smith21");
-        assertEquals(student.getCourses().toString(), "[BCT]");
-        assertEquals(student.getID(), "123456");
-        
-     }
-     
-     @Test
-     public void Module_Tests() {
-      Module module = new Module();
-        module.setStudents("John Smith");
-        module.setName("CT414");
-        assertEquals(module.getStudents().toString(), "[John Smith]");  
-        
-     }
-     
+//    @Test
+//     public void Student_Tests() {
+//        student.setName("John Smith");
+//        student.setAge(35);
+//        student.setDOB("01/01/2000");
+//        student.setCourses(cp);
+//        student.setID("123456");
+//        
+//        
+//        assertEquals(student.getDOB(), "01/01/2000");
+//        assertEquals(student.getUsername(), "John Smith35");
+//        assertEquals(student.getCourses().toString(), "[BCT]");
+//        assertEquals(student.getID(), "123456");
+//        
+//     }
+//     
+//     @Test
+//     public void Module_Tests() {
+//        module.setStudents(student);
+//        module.setName("CT414");
+//        module.setCourses("BCT");
+//        
+//        
+//        assertEquals(module.getStudents(), "[John Smith]"); 
+//        assertEquals(module.getName(), "CT414");
+//        
+//     }
+//     
      @Test
      public void CP_Tests() {
-      CourseProgramme cp = new CourseProgramme();
-        cp.setModules("CT414");
-        assertEquals(cp.getModules().toString(), "[CT414]");  
+         Module[] send = new Module[10];
+         send[0] = module;
+        cp.setModules(send);
+        assertEquals(cp.getModules()[0].getName(), "CT414");  
      }
 }

@@ -13,8 +13,17 @@ import java.util.ArrayList;
  */
 public class Module {
     private String Name;
-    private ArrayList Students = new ArrayList();
+    private ArrayList<Student> Students = new ArrayList<Student>();
     private ArrayList Courses = new ArrayList();
+
+    public Module(String Name,ArrayList<Student> Students,ArrayList Courses ) {
+        this.Name = Name;
+        this.Students = Students;
+        this.Courses = Courses;
+    }
+
+    
+   
 
     public String getName() {
         return Name;
@@ -28,7 +37,7 @@ public class Module {
         return Students;
     }
 
-    public void setStudents(String name) {
+    public void setStudents(Student name) {
         Students.add(name);
     }
 
