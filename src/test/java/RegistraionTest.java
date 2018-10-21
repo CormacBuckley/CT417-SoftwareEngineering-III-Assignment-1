@@ -29,10 +29,10 @@ public class RegistraionTest {
     @Before
     public void setUp() {
 
-        cp = new CourseProgramme("BCT", module, new DateTime("2012-08-16"), new DateTime("2013-08-16"));
+        cp = new CourseProgramme("BCT", new DateTime("2012-08-16"), new DateTime("2013-08-16"));
         student = new Student("John Smith", 35, "01/01/2000", "1234", cp);
         module = new Module("CT414", student, cp);
-        cp = new CourseProgramme("BCT", module, new DateTime("2012-08-16"), new DateTime("2013-08-16"));
+        
 
     }
 

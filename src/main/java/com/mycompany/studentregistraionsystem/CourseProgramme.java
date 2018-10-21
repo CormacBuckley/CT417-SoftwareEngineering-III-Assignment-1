@@ -19,9 +19,8 @@ public class CourseProgramme {
     private DateTime StartDate;
     private DateTime EndDate;
 
-    public CourseProgramme(String Name,Module Modules, DateTime StartDate, DateTime EndDate) {
+    public CourseProgramme(String Name, DateTime StartDate, DateTime EndDate) {
         this.Name = Name;
-        this.Modules.add(Modules);
         this.StartDate = StartDate;
         this.EndDate = EndDate;
     }
